@@ -16,4 +16,6 @@
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
     = javascript_include_tag "turbo", type: "module"
   %body
+    %p.notice= notice
+    %p.alert= alert
     = yield
