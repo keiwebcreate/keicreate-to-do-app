@@ -24,6 +24,11 @@
         .p-header__inner
           %h1.p-header__logo
             ToDo管理アプリ
+          - if user_signed_in?
+            .p-header__avatar
+              = image_tag 'avatar-image.png'
+          - else
+            = link_to 'ログインする', user_session_path, class: 'p-header__login'
     %p.notice= notice
     %p.alert= alert
     %main.l-main
