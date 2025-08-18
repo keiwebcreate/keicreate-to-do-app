@@ -19,6 +19,12 @@
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
     = javascript_include_tag "turbo", type: "module"
   %body
+    %header.l-header
+      .p-header
+        .p-header__inner
+          %h1.p-header__logo
+            ToDo管理アプリ
     %p.notice= notice
     %p.alert= alert
-    = yield
+    %main.l-main
+      = yield
