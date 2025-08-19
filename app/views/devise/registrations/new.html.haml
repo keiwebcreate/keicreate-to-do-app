@@ -1,21 +1,20 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.l-inner
+  %h2.c-page-head ユーザー登録する
+  .c-form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .c-form__field
+        = f.label :email, 'メールアドレス', class: 'c-form__label'
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'c-form__input-text', placeholder: 'メールアドレスを入力してください'
+      .c-form__field
+        = f.label :password, 'パスワード', class: 'c-form__label'
+        - if @minimum_password_length
+          %em
+            (半角英数字#{@minimum_password_length}文字以上入力してください)
+        = f.password_field :password, autocomplete: "new-password", class: 'c-form__input-text', placeholder: 'パスワードを入力してください'
+      .c-form__field
+        = f.label :password_confirmation, 'パスワード確認', class: 'c-form__label'
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'c-form__input-text', placeholder: 'パスワードを再度入力してください'
+      .actions
+        = f.submit "ユーザー登録を完了する", class: 'c-form__submit'
+  = render "devise/shared/links"
