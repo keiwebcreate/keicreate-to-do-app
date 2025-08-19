@@ -1,0 +1,43 @@
+.p-header {
+  padding-block: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.p-header__inner {
+  padding-inline: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-header__logo {
+  font-size: 24px;
+}
+
+.p-header__avatar {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-header__login {
+  font-size: 14px;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #333;
+      color: #fafafa;
+    }
+  }
+  
+}

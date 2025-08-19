@@ -12,10 +12,24 @@
     %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
     %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
     %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
+    %link{href: "https://fonts.googleapis.com", rel: "preconnect"}/
+    %link{crossorigin: "", href: "https://fonts.gstatic.com", rel: "preconnect"}/
+    %link{href: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap", rel: "stylesheet"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
     = javascript_include_tag "turbo", type: "module"
   %body
+    %header.l-header
+      .p-header
+        .p-header__inner
+          %h1.p-header__logo
+            ToDo管理アプリ
+          - if user_signed_in?
+            .p-header__avatar
+              = image_tag 'avatar-image.png'
+          - else
+            = link_to 'ログインする', user_session_path, class: 'p-header__login'
     %p.notice= notice
     %p.alert= alert
-    = yield
+    %main.l-main
+      = yield
